@@ -2,12 +2,17 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MyBlog.Api;
 using MyBlog.Core.Domain.Identity;
+using MyBlog.Core.Models.Content;
+using MyBlog.Core.Repositories;
+using MyBlog.Core.SeeWorks;
 using MyBlog.Data;
+using MyBlog.Data.Repositories;
+using MyBlog.Data.SeeWorks;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 var connectionString = configuration.GetConnectionString("DefaultConnection");
-// Add services to the container.
+
 //Config DB Context and ASP.NET Core Identity
 builder.Services.AddDbContext<MyBlogContext>(options =>
                 options.UseSqlServer(connectionString));
@@ -35,6 +40,27 @@ builder.Services.Configure<IdentityOptions>(options =>
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
     options.User.RequireUniqueEmail = false;
 });
+// Add services to the container.
+builder.Services.AddScoped(typeof(IRepository<,>), typeof(RepositoryBase<,>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+//Business services and repositories
+var services = typeof(PostRepository).Assembly.GetTypes()
+    .Where(x => x.GetInterfaces().Any(i => i.Name == typeof(IRepository<,>).Name)
+    && !x.IsAbstract && x.IsClass && x.IsGenericType);
+
+foreach (var service in services)
+{
+    var allInterface = service.GetInterfaces();
+    var directInterface = allInterface.Except(allInterface.SelectMany(t => t.GetInterfaces())).FirstOrDefault();
+    if (directInterface!=null)
+    {
+        builder.Services.Add(new ServiceDescriptor(directInterface, service, ServiceLifetime.Scoped));
+    }
+}
+
+builder.Services.AddAutoMapper(typeof(PostInListDto));
+
+
 //Default config for ASP.NET Core
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
