@@ -9,6 +9,11 @@ import { RegisterComponent } from './views/auth/register/register.component';
 
 const routes: Routes = [
   {
+    path: 'auth',
+    loadChildren: () =>
+      import('./views/auth/auth.module').then((m) => m.AuthModule)
+  },
+  {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full'
@@ -26,11 +31,7 @@ const routes: Routes = [
           import('./views/dashboard/dashboard.module').then((m) => m.DashboardModule)
       },
       
-      {
-        path: 'auths',
-        loadChildren: () =>
-          import('./views/auth/auth.module').then((m) => m.AuthModule)
-      },
+      
     ]
   },
   {
