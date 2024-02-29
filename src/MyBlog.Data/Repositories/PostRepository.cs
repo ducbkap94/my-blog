@@ -9,7 +9,7 @@ using MyBlog.Data.SeeWorks;
 
 namespace MyBlog.Data.Repositories
 {
-    public class PostRepository : RepositoryBase<PostInListDto, Guid>, IPostRepository
+    public class PostRepository : RepositoryBase<Post, Guid>, IPostRepository
     {
         private readonly IMapper _mapper;
         public PostRepository(MyBlogContext context, IMapper mapper) : base(context)

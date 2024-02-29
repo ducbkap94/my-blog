@@ -1,4 +1,7 @@
-﻿using MyBlog.Core.SeeWorks;
+﻿using AutoMapper;
+using MyBlog.Core.Repositories;
+using MyBlog.Core.SeeWorks;
+using MyBlog.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +14,12 @@ namespace MyBlog.Data.SeeWorks
     {
         private readonly MyBlogContext _context;
 
-        public UnitOfWork(MyBlogContext context)
+        public UnitOfWork(MyBlogContext context, IMapper mapper)
         {
             _context = context;
+            Posts = new PostRepository(context, mapper);
         }
+        public IPostRepository Posts { get; private set; }
         public async Task<int> CompleteAsync()
         {
             return await _context.SaveChangesAsync();
