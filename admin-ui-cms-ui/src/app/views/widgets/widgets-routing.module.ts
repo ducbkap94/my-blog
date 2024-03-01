@@ -1,25 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {PostComponent} from './posts/post.component';
+import { WidgetsComponent } from './widgets/widgets.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'posts',
-    pathMatch:'full' 
-  },
-  {
-    path: 'posts',
-    component: PostComponent,
+    component: WidgetsComponent,
     data: {
-      title: 'Posts'
+      title: 'Widgets'
     }
-  },
+  }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ContentRoutingModule {
+export class WidgetsRoutingModule {
 }

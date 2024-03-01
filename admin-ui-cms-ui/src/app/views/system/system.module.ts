@@ -40,5 +40,5 @@ import { SystemRoutingModule } from './system-routing.module';
   ],
   declarations: []
 })
-export class SystemdModule {
+export class SystemModule {
 }

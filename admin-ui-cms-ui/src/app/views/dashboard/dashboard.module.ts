@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { WidgetsModule } from '../widgets/widgets.module';
 
 import {
   AvatarModule,
@@ -19,8 +20,6 @@ import { ChartjsModule } from '@coreui/angular-chartjs';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
-
-import { WidgetsModule } from '../widgets/widgets.module';
 
 @NgModule({
   imports: [
