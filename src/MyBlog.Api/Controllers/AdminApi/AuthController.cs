@@ -79,7 +79,7 @@ namespace MyBlog.Api.Controllers.AdminApi
                 RefreshToken = refreshToken
             });
         }
-
+        //author
         private async Task<List<string>> GetPermissionsByUserIdAsync(string userId)
         {
             var user=await _userManager.FindByIdAsync(userId);
