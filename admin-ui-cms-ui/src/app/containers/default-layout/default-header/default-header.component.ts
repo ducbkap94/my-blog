@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { ClassToggleService, HeaderComponent } from '@coreui/angular';
 import { UrlConstants } from 'src/app/shared/constants/url.constants';
-import { TokenStorageService } from 'src/app/shared/services/token.storage.service';
+import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 
 @Component({
   selector: 'app-default-header',

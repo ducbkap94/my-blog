@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AdminApiAuthApiClient, AuthenticatedResult, LoginRequest } from 'src/app/api/admin-api.service.generated';
 import { AlertService } from 'src/app/shared/services/alert.service';
 import {UrlConstants} from 'src/app/shared/constants/url.constants';
-import { TokenStorageService } from 'src/app/shared/services/token.storage.service';
+import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 import { Subject, takeUntil} from 'rxjs';
 @Component({
   selector: 'app-login',

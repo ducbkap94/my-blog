@@ -12,6 +12,13 @@ const routes: Routes = [
     pathMatch:'full'
   },
   {
+    path: '403',
+    component: Page404Component,
+    data: {
+      title: 'Page 403'
+    }
+  },
+  {
     path: '404',
     component: Page404Component,
     data: {
