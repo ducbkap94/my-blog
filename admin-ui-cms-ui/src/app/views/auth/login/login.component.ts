@@ -1,11 +1,12 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+
 import { AdminApiAuthApiClient, AuthenticatedResult, LoginRequest } from 'src/app/api/admin-api.service.generated';
 import { AlertService } from 'src/app/shared/services/alert.service';
 import {UrlConstants} from 'src/app/shared/constants/url.constants';
 import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 import { Subject, takeUntil} from 'rxjs';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -45,7 +46,7 @@ export class LoginComponent implements OnDestroy {
         this.tokenService.saveRefreshToken(res.refreshToken);
         this.tokenService.saveUser(res);
         //Chuyen trang
-        this.router.navigate([UrlConstants.HOME ]);
+        this.router.navigate([UrlConstants.HOME]);
       },
       error:(error:any)=>{
         console.log(error);

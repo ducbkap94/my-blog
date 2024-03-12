@@ -40,5 +40,5 @@ import { ContentRoutingModule } from './content-routing.module';
   ],
   declarations: []
 })
-export class ContentdModule {
+export class ContentModule {
 }

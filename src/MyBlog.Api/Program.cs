@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using MyBlog.Api;
 using MyBlog.Api.Services;
 using MyBlog.Core.ConfigOptions;
@@ -12,6 +14,7 @@ using MyBlog.Data.Repositories;
 using MyBlog.Data.SeeWorks;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -96,7 +99,22 @@ builder.Services.AddSwaggerGen(c =>
         Description = "API for CMS core domain. This domain keeps track of campaigns, campaign rules, and campaign execution."
     });
 });
+builder.Services.AddAuthentication(o =>
+{
+    o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(cfg =>
+{
+    cfg.RequireHttpsMetadata = false;
+    cfg.SaveToken = true;
 
+    cfg.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidIssuer = configuration["JwtTokenSettings:Issuer"],
+        ValidAudience = configuration["JwtTokenSettings:Issuer"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtTokenSettings:Key"]))
+    };
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -112,7 +130,7 @@ if (app.Environment.IsDevelopment())
 }
 app.UseCors(MyBlogCorsPolicy);
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

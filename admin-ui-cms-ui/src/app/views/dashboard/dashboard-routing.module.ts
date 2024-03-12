@@ -5,10 +5,10 @@ import { DashboardComponent } from './dashboard.component';
 import {AuthGuard} from 'src/app/shared/auth.guard';
 const routes: Routes = [
   {
-    path: '',
+    path: 'dashboard',
     component: DashboardComponent,
     data: {
-      title: $localize`Trang chủ`,
+      title: `Trang chủ`,
       requiredPolicy: "Permisssions.Dashboard.View",
     },
     canActivate: [AuthGuard]
