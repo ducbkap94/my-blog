@@ -1,39 +1,37 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {UserComponent} from './users/user.component';
-import {RoleComponent} from './roles/role.component';
-import {AuthGuard} from 'src/app/shared/auth.guard';
+import { UserComponent } from './users/user.component';
+import { RoleComponent } from './roles/role.component';
+
+import { AuthGuard } from 'src/app/shared/auth.guard';
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'users',
-    pathMatch: 'full',
-    canActivate:[AuthGuard],
-
+    pathMatch: 'full'
   },
   {
     path: 'users',
     component: UserComponent,
-    data:{
-      title: "Người dùng",
-      requiredPolicy: "Permisssions.Users.View",
+    data: {
+      title: 'Người dùng',
+      requiredPolicy: 'Permissions.Users.View',
     },
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'roles',
     component: RoleComponent,
-    data:{
-      title: "Quyền",
-      requiredPolicy: "Permisssions.Roles.View",
+    data: {
+      title: 'Quyền',
+      requiredPolicy: 'Permissions.Roles.View',
     },
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class SystemRoutingModule {
-}
+export class SystemRoutingModule {}

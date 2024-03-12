@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using MyBlog.Api;
+using MyBlog.Api.Authorization;
 using MyBlog.Api.Services;
 using MyBlog.Core.ConfigOptions;
 using MyBlog.Core.Domain.Identity;
@@ -20,6 +22,8 @@ var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 var connectionString = configuration.GetConnectionString("DefaultConnection");
 var MyBlogCorsPolicy = "MyBlogPolicy";
+builder.Services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
+builder.Services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
 builder.Services.AddCors(o => o.AddPolicy(MyBlogCorsPolicy, builder =>
 {
     builder.AllowAnyMethod()

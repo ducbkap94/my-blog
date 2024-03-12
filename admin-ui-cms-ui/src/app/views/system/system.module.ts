@@ -13,6 +13,7 @@ import { SharedModule } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
+
 @NgModule({
   imports: [
     SystemRoutingModule,
@@ -27,6 +28,7 @@ import { TableModule } from 'primeng/table';
     ButtonModule,
     InputTextModule,
     SharedModule,
+
   ],
   declarations: [UserComponent, RoleComponent]
 })
