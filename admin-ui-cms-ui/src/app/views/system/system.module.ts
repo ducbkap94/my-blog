@@ -16,6 +16,14 @@ import { TableModule } from 'primeng/table';
 import { RolesDetailComponent } from './roles/roles-detail.component';
 import { BlogSharedModule } from 'src/app/shared/modules/myblog-shared.module';
 import { KeyFilterModule } from 'primeng/keyfilter';
+import { PermissionGrantComponent } from './roles/permission-grant.component';
+import { SetPasswordComponent } from './users/set-password.component';
+import { UserDetailComponent } from './users/user-detail.component';
+import { BadgeModule } from 'primeng/badge';
+import { PickListModule } from 'primeng/picklist';
+import { ImageModule } from 'primeng/image';
+import { ChangeEmailComponent } from './users/change-email.component';
+import { RoleAssignComponent } from './users/role-assign.component';
 @NgModule({
   imports: [
     SystemRoutingModule,
@@ -31,11 +39,21 @@ import { KeyFilterModule } from 'primeng/keyfilter';
     InputTextModule,
     KeyFilterModule,
     SharedModule,
-    BlogSharedModule
-    
-    
+    BlogSharedModule,
+    BadgeModule,
+    PickListModule,
+    ImageModule
   ],
-  declarations: [UserComponent, RoleComponent, RolesDetailComponent]
+  declarations: [
+    UserComponent,
+    RoleComponent, 
+    RolesDetailComponent,
+    PermissionGrantComponent, 
+    ChangeEmailComponent,
+    RoleAssignComponent,
+    SetPasswordComponent,
+    UserDetailComponent
+  ]
 })
 export class SystemModule {
 }

@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
 using MyBlog.Core.Domain.Content;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyBlog.Core.Models.Content
 {

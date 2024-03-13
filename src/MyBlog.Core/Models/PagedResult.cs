@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyBlog.Core.Models
+﻿namespace MyBlog.Core.Models
 {
     public class PagedResult<T> : PagedResultBase where T : class
     {
