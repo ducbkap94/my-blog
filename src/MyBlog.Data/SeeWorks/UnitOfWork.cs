@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MyBlog.Core.Domain.Content;
 using MyBlog.Core.Repositories;
 using MyBlog.Core.SeeWorks;
 using MyBlog.Data.Repositories;
@@ -18,8 +19,12 @@ namespace MyBlog.Data.SeeWorks
         {
             _context = context;
             Posts = new PostRepository(context, mapper);
+            PostCategories=new PostCategoryRepository(context, mapper);
         }
         public IPostRepository Posts { get; private set; }
+
+        public IPostCategoryRepository PostCategories { get; private set; }
+
         public async Task<int> CompleteAsync()
         {
             return await _context.SaveChangesAsync();
