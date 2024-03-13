@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using MyBlog.Api.Filters;
 using MyBlog.Core.Domain.Identity;
 using MyBlog.Core.Models;
-using static TeduBlog.Core.SeedWorks.Constants.Permissions;
-using TeduBlog.Core.SeedWorks.Constants;
-using TeduBlog.Core.Models.System;
+using static MyBlog.Core.SeedWorks.Constants.Permissions;
+using MyBlog.Core.SeedWorks.Constants;
+using MyBlog.Core.Models.System;
 using Microsoft.EntityFrameworkCore;
-using TeduBlog.Api.Extensions;
+using MyBlog.Api.Extensions;
 
 namespace MyBlog.Api.Controllers.AdminApi
 {

@@ -9,7 +9,7 @@ using MyBlog.Core.Domain.Identity;
 using MyBlog.Core.Models;
 using MyBlog.Core.Models.System;
 using System.Reflection;
-using TeduBlog.Core.SeedWorks.Constants;
+using MyBlog.Core.SeedWorks.Constants;
 
 namespace MyBlog.Api.Controllers.AdminApi
 {

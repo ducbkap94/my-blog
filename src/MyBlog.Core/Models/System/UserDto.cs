@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MyBlog.Core.Domain.Identity;
 
-namespace TeduBlog.Core.Models.System
+namespace MyBlog.Core.Models.System
 {
     public class UserDto
     {

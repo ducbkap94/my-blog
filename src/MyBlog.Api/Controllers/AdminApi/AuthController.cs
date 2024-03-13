@@ -12,7 +12,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Reflection;
 using System.Security.Claims;
 using System.Text.Json;
-using TeduBlog.Core.SeedWorks.Constants;
+using MyBlog.Core.SeedWorks.Constants;
 
 namespace MyBlog.Api.Controllers.AdminApi
 {

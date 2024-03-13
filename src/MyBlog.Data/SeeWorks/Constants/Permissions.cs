@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace TeduBlog.Core.SeedWorks.Constants
+namespace MyBlog.Core.SeedWorks.Constants
 {
     public static class Permissions
     {

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using MyBlog.Core.Domain.Content;
 
-namespace TeduBlog.Core.Models.Content
+namespace MyBlog.Core.Models.Content
 {
     public class CreateUpdatePostCategoryRequest
     {

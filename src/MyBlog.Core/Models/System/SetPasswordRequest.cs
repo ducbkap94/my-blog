@@ -1,4 +1,4 @@
-﻿namespace TeduBlog.Core.Models.System
+﻿namespace MyBlog.Core.Models.System
 {
     public class SetPasswordRequest
     {

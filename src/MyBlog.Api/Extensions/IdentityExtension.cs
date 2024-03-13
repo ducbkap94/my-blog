@@ -1,8 +1,8 @@
 ﻿using MyBlog.Data.SeeWorks.Constants;
 using System.Security.Claims;
-using TeduBlog.Core.SeedWorks.Constants;
+using MyBlog.Core.SeedWorks.Constants;
 
-namespace TeduBlog.Api.Extensions
+namespace MyBlog.Api.Extensions
 {
     public static class IdentityExtension
     {

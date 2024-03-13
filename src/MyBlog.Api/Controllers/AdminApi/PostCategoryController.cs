@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using MyBlog.Core.Domain.Content;
 using MyBlog.Core.Models;
 using MyBlog.Core.SeeWorks;
-using static TeduBlog.Core.SeedWorks.Constants.Permissions;
-using TeduBlog.Core.Models.Content;
+using static MyBlog.Core.SeedWorks.Constants.Permissions;
+using MyBlog.Core.Models.Content;
 
 namespace MyBlog.Api.Controllers.AdminApi
 {
