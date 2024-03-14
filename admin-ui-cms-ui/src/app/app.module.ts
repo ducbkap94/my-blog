@@ -3,7 +3,7 @@ import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@a
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { UploadService } from './shared/services/upload.service';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 
 // Import routing module
@@ -38,7 +38,7 @@ import {
 } from '@coreui/angular';
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
-import {ADMIN_API_BASE_URL, AdminApiAuthApiClient, AdminApiPostCategoryApiClient, AdminApiRoleApiClient, AdminApiTestApiClient, AdminApiTokenApiClient, AdminApiUserApiClient} from "./api/admin-api.service.generated";
+import {ADMIN_API_BASE_URL, AdminApiAuthApiClient, AdminApiPostApiClient, AdminApiPostCategoryApiClient, AdminApiRoleApiClient, AdminApiSeriesApiClient, AdminApiTestApiClient, AdminApiTokenApiClient, AdminApiUserApiClient} from "./api/admin-api.service.generated";
 import {environment} from "./../environments/environment";
 import { ToastModule } from 'primeng/toast';
 import { ConfirmationService, MessageService } from 'primeng/api';
@@ -51,6 +51,7 @@ import { GlobalHttpInterceptorService } from './shared/interceptors/error-handle
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { UtilityService } from './shared/services/utility.service';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { EditorModule } from 'primeng/editor';
 const APP_CONTAINERS = [
   DefaultFooterComponent,
   DefaultHeaderComponent,
@@ -90,6 +91,7 @@ const APP_CONTAINERS = [
     HttpClientModule,
     ConfirmDialogModule,
     DynamicDialogModule,    
+    EditorModule
   ],
   providers: [
     {provide: ADMIN_API_BASE_URL, useValue : environment.API_URL},
@@ -122,7 +124,12 @@ const APP_CONTAINERS = [
     UtilityService,
     ConfirmationService,
     AdminApiUserApiClient,
-    AdminApiPostCategoryApiClient
+    AdminApiPostCategoryApiClient,
+    AdminApiPostApiClient,
+    AdminApiSeriesApiClient,
+    UploadService,
+
+
   ],
   bootstrap: [AppComponent]
 })
