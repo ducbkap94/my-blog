@@ -28,6 +28,16 @@ const routes: Routes = [
       },
       canActivate: [AuthGuard],
     },
+    {
+      path: 'series',
+      component: PostCategoryComponent,
+      data: {
+        title: 'Danh mục',
+        requiredPolicy: 'Permissions.PostCategories.View',
+      },
+      canActivate: [AuthGuard],
+    },
+  
   
     
   

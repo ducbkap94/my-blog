@@ -386,10 +386,10 @@ export class AdminApiPostApiClient {
             throw new Error("The parameter 'keyword' cannot be null.");
         else if (keyword !== undefined)
             url_ += "keyword=" + encodeURIComponent("" + keyword) + "&";
-        if (categoryId === null)
-            throw new Error("The parameter 'categoryId' cannot be null.");
-        else if (categoryId !== undefined)
-            url_ += "categoryId=" + encodeURIComponent("" + categoryId) + "&";
+        // if (categoryId === null)
+        //     throw new Error("The parameter 'categoryId' cannot be null.");
+        // else if (categoryId !== undefined)
+        //     url_ += "categoryId=" + encodeURIComponent("" + categoryId) + "&";
         if (pageIndex === null)
             throw new Error("The parameter 'pageIndex' cannot be null.");
         else if (pageIndex !== undefined)
